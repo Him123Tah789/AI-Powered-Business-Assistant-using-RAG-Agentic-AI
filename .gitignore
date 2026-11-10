@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches
+.pytest_cache/
+*.pkl
+rag_cache.pkl
+
+# Environment variables (keep secrets safe)
+.env
+!.env.example
+
+# Assessment Instruction document (contains evaluation API key)
+Assessment-instruction.docx.pdf
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE / Editor files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+

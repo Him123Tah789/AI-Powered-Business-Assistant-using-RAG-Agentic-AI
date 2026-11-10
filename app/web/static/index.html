@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Business Assistant | RAG & Agentic AI</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- TOP HEADER -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand-icon">🤖</div>
+        <div class="brand-text">
+          <h1>AI Business Assistant</h1>
+          <span class="badge-tech">RAG + Agentic AI</span>
+          <span class="badge-policy">SRV-POL-001</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Auth User Status -->
+        <div class="user-pill" id="userPill">
+          <span class="status-dot dot-online"></span>
+          <span id="userName">Milon Sarkar</span>
+          <span class="user-email" id="userEmail">(zentixsoftsamsu@gmail.com)</span>
+        </div>
+
+        <!-- Permission Toggle for Scenario 4 vs 5 Testing -->
+        <div class="perm-control">
+          <label class="switch-label">
+            <span class="perm-text">Permission:</span>
+            <input type="checkbox" id="permToggle" checked>
+            <span class="slider"></span>
+            <span id="permLabel" class="perm-status-badge perm-granted">profile.update: GRANTED</span>
+          </label>
+        </div>
+
+        <!-- Re-Auth Button -->
+        <button id="reAuthBtn" class="btn-secondary" title="Re-authenticate against Passenger API">
+          🔄 Re-Auth
+        </button>
+      </div>
+    </header>
+
+    <!-- TEST SCENARIOS QUICK BAR -->
+    <div class="scenarios-panel">
+      <div class="scenarios-title">
+        <span>⚡ Quick Test Scenarios (Click to test evaluation requirements):</span>
+      </div>
+      <div class="scenarios-buttons">
+        <button class="scenario-btn btn-s1" data-scenario="1" title="Scenario 01: Policy-based question answering">
+          📄 S1: Max Service Price
+        </button>
+        <button class="scenario-btn btn-s2" data-scenario="2" title="Scenario 02: Information not available in policy">
+          ❓ S2: Employee Bonus Policy
+        </button>
+        <button class="scenario-btn btn-s3" data-scenario="3" title="Scenario 03: Retrieve authenticated user profile">
+          👤 S3: Show My Profile
+        </button>
+        <button class="scenario-btn btn-s4" data-scenario="4" title="Scenario 04: Authorized profile update">
+          ✅ S4: Update Phone (Authorized)
+        </button>
+        <button class="scenario-btn btn-s5" data-scenario="5" title="Scenario 05: Unauthorized profile update">
+          🚫 S5: Update Phone (Unauthorized)
+        </button>
+        <button class="scenario-btn btn-s6" data-scenario="6" title="Scenario 06: Missing required information">
+          📝 S6: Missing Information
+        </button>
+        <button class="scenario-btn btn-s7" data-scenario="7" title="Scenario 07: Prompt injection & credential security">
+          🛡️ S7: Prompt Injection Defense
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN CHAT CONTAINER -->
+    <main class="chat-main">
+      <div class="chat-history" id="chatHistory">
+        <!-- Welcome Message -->
+        <div class="chat-message assistant-message">
+          <div class="avatar">🤖</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="sender-name">Business AI Assistant</span>
+              <span class="message-time" id="welcomeTime">Just now</span>
+            </div>
+            <div class="message-body">
+              <p>Hello! I am your AI Business Assistant integrated with the Service Management System and Passenger API.</p>
+              <div class="welcome-features">
+                <div class="feature-item">
+                  <strong>📚 Policy Knowledge (RAG):</strong> Ask questions about Service Management Policy (SRV-POL-001).
+                </div>
+                <div class="feature-item">
+                  <strong>👤 User Profile Operations:</strong> View or update your authenticated profile.
+                </div>
+                <div class="feature-item">
+                  <strong>🛡️ Secure Access Control:</strong> Verifies permissions before executing restricted operations.
+                </div>
+              </div>
+              <p class="hint-text">You can test all assessment scenarios using the quick buttons above or by typing below.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER INPUT AREA -->
+    <footer class="chat-footer">
+      <div class="input-container">
+        <textarea 
+          id="messageInput" 
+          placeholder="Ask a policy question (e.g., 'What is the maximum price allowed?') or manage your profile..." 
+          rows="1"
+        ></textarea>
+        <div class="action-buttons">
+          <button id="clearChatBtn" class="btn-icon" title="Clear Chat History">🗑️</button>
+          <button id="sendBtn" class="btn-primary" title="Send message">
+            <span>Send</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>Model: <strong>gemini-3.5-flash-lite</strong></span>
+        <span>•</span>
+        <span>Backend: <strong>FastAPI REST</strong></span>
+        <span>•</span>
+        <span>External API: <strong>Passenger App (staging.limoground.com)</strong></span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
+
